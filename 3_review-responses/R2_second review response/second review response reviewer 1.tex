@@ -1,0 +1,207 @@
+\documentclass[review]{elsarticle}
+\usepackage{hyperref}
+
+\begin{document}
+
+Dear Reviewer 1:
+
+I will respond to each point by quoting each of your questions.
+
+\begin{quotation}
+- Not found feature descriptions for SVM and XGBoost 
+\end{quotation}
+
+The feature descriptions for both SVM and XGBoost are discussed in section 4.2 Advert Viewing Time Calculation, further shown in Table 3. The table, however, is complicated and a bit unreadable in its previous form and I have rewritten the methodology section to express better the feature vectors. However, to respond to your question directly, I will explain the feature vectors used in the first version below.
+
+\begin{itemize}
+    \item{Total Seconds Model: A single feature, the total number of seconds observed for the related advert.}
+
+    \item{Day/Primetime Model: Each day is split into two features, Primetime and Non-Primetime. Then the same is added with Weekdays, Weekends, Holidays and Rest days. Total of 22 features.}
+
+    \begin{itemize}
+        \item Monday Primetime
+        \item Monday Non-Primetime
+        \item Tuesday Primetime
+        \item Tuesday Non-Primetime
+        \item Wednesday Primetime
+        \item Wednesday Non-Primetime
+        \item Thursday Primetime
+        \item Thursday Non-Primetime
+        \item Friday Primetime
+        \item Friday Non-Primetime
+        \item Saturday Primetime
+        \item Saturday Non-Primetime
+        \item Sunday Primetime
+        \item Sunday Non-Primetime
+        \item Weekday Primetime
+        \item Weekday Non-Primetime
+        \item Weekend Primetime
+        \item Weekend Non-Primetime
+        \item Holidays Primetime
+        \item Holidays Non-Primetime
+        \item Rest Day Primetime
+        \item Rest Day Non-Primetime
+    \end{itemize}
+\end{itemize}
+
+That is to say, in order to answer your final request to add Multi-Layer Perceptron and Logistic Regression, aditional experiments were done, so this is merely explanatory of the experiments done in the first version of the manuscript. The feature vectors are now described in section 4.4. Input Data, and in subsections 4.4.1 Advert Viewing Time, and 4.4.2 Demographic Data. The detailed tables are in Appendix A and Tables A.18 and A.19.
+
+\begin{quotation}
+- In table 1 and table 2, explanations of "Categories" are not found.
+  - Therefore, readers can not experiment the same as this paper.
+- How did you divide data into categories? Hands? Rule base?
+\end{quotation}
+
+The contents of table 1 and 2 and the categorization of the data are explained in detail in section 4.1.2 Data Categorization of this paper already. After the revision and consequential reorganizing of sections, however, they are included in the renamed section 4.3.2. Prediction Target Data Categorization, and the re-numbered tables 3 and 4.
+
+\begin{quotation}
+- In this paper, authors use K-fold cross-validation. What K value did you use in this research?
+- Why did you use K-fold cross-validation instead of training data, development data, test data?
+- Please write hyper-parameters of SVM and XGBoost that were used for experiments.
+  - Additionally, how did you decide the hyper-parameters?
+\end{quotation}
+
+For our K-fold Cross Validation, we used a value of 5. This value is appropriate for the size of the data (3000 users and 36 usable products). We included this clarification in the new section 5.2. Experiment Parameters. 
+
+K-Fold Cross Validation was used in order to avoid leaving a static set of data that is unused in the training, avoiding possible bias in the testing sample. However, due to limitations on calculation processing power, the requested Neural Network experiments were done with simple training data and test data.
+
+A more detailed description of the specific parameters was added in the new section 5.2. Experiment Parameters.
+
+\begin{quotation}
+- I did not understand which feature is useful for predictions.
+\end{quotation}
+
+The main feature that was decided to be effective in this experiment was the total number of seconds of the advertisement being watched. In the new experiment design requested by another reviewer, however, demographic data is also included. This is explained further below, and in the revised section 4. Methodology,  and the new section 4.1. Experiment Design Overview.
+
+\begin{quotation}
+- Why do the authors show only results of category 2 and category 4?
+\end{quotation}
+
+The results from other categories produced similarly uninteresting results, and provided little to no material for discussion. Furthermore, since the purpose of advertisement is to increase sales, we thought appropriate to mainly discuss the results on customers that were purchasing, or that were possibly convinced to purchase because of the advert. However, in the revision of this paper we included all categories in section 5. Results due to the request of reviewers.
+
+\begin{quotation}
+- Why did you use SVM and XGBoost?
+\end{quotation}
+
+The reason we used SVM and XGBoost is that they are considered well performing machines in the machine learning field for the size of the available data that we had. Other methodologies are generally thought perform better under the assumption that databases on a different order of magnitude are used. This explanation is also added to the manuscript in section 4.5 Prediction Models, and in section 8. Limitations. 
+
+\begin{quotation}
+The novel point of this study is using machine learning for TV commercial adverts and purchase behavior.
+Therefore, methodology concerning machine learning have not the novelty.
+Thus, authors should indicate which machine learning method is useful for this task.
+- Please add experiments using Multi-Layer Perceptron and Logistic Regression.
+\end{quotation}
+
+As asked, we have made new experiments using Logistic Regression. However, due to constraints of processing time for Neural Networks, we have not included them in the revised manuscript. The new design for the experiments (as asked by another reviewer) is described in detail in the new sections of 4. Methodology, as well as sumarized in 4.1. Experiment Design Overview and in 5.1. Model Training. We also included a short summary below. After observing our results, however, in average, SVM outperformed XGBoost and Logistic Regression experiments. This is because, consistent with out original views when choosing the methodology, SVM is the most appropriate machine learning method when presented with the size and structure of our dataset. State of the art Neural Networks require datasets orders of magnitude much larger to perform their best. This was also added to a new section 8. Limitations, of our revised manuscript.
+
+The experiments are described below:
+
+\begin{itemize}
+\item Product Based Models:
+    \begin{itemize}
+        \item Advert Viewing Time
+        \item Advert Viewing Time, Demographics, Purchase Intention
+        \item Demographics, Purchase intention
+    \end{itemize}
+\item User Based Models:
+    \begin{itemize}
+        \item Advert Viewing Time
+        \item Advert Viewing Time, Demographics, Purchase Intention
+        \item Demographics, Purchase intention
+    \end{itemize}
+\end{itemize}
+* Of course, removing the Purchase Intention from the feature vector when it is the Prediction Target
+
+With 3 methodologies:
+\begin{itemize}
+    \item SVM
+    \item XGBoost
+    \item Logistic Regression
+\end{itemize}
+
+The models and features defined as follows:
+
+\begin{itemize}
+    \item{Advert Viewing Time:}
+    \begin{itemize}
+        \item Weekday Configuration:
+        \begin{itemize}
+            \item Monday
+            \item Tuesday
+            \item Wednesday
+            \item Thursday
+            \item Friday
+            \item Saturday
+            \item Sunday
+        \end{itemize}
+        \item Weekday and Time Slot Configuration:
+        \begin{itemize}
+            \item Monday Primetime
+            \item Monday Non-Primetime
+            \item Tuesday Primetime
+            \item Tuesday Non-Primetime
+            \item Wednesday Primetime
+            \item Wednesday Non-Primetime
+            \item Thursday Primetime
+            \item Thursday Non-Primetime
+            \item Friday Primetime
+            \item Friday Non-Primetime
+            \item Saturday Primetime
+            \item Saturday Non-Primetime
+            \item Sunday Primetime
+            \item Sunday Non-Primetime
+        \end{itemize}
+    \end{itemize}
+    \item{Demographics:}
+    \begin{itemize}
+        \item Age:
+        \begin{itemize}
+            \item 18 to 25 years old
+            \item 26 to 35 years old
+            \item 36 to 45 years old
+            \item 46 to 55 years old
+            \item 56 or older
+        \end{itemize}
+        \item Sex:
+        \begin{itemize}
+            \item Male
+            \item Female
+        \end{itemize}
+        \item Marital Status:
+        \begin{itemize}
+            \item Single
+            \item Married
+            \item Divorced or Widowed
+        \end{itemize}
+        \item Parental status:
+        \begin{itemize}
+            \item Parent
+            \item Not a Parent
+        \end{itemize}
+        \item Income Bracket:
+        \begin{itemize}
+            \item Not disclosed
+            \item No Income
+            \item Under 1,000,000 yen
+            \item From 1,000,000 yen to 2,000,000 yen
+            \item From 2,000,000 yen to 3,000,000 yen
+            \item From 3,000,000 yen to 4,000,000 yen
+            \item From 4,000,000 yen to 5,000,000 yen
+            \item From 5,000,000 yen to 6,000,000 yen
+            \item From 6,000,000 yen to 7,000,000 yen
+            \item From 7,000,000 yen to 10,000,000 yen
+            \item From 10,000,000 yen to 15,000,000 yen
+            \item From 15,000,000 yen to 20,000,000 yen
+            \item Over 20,000,000 yen
+        \end{itemize}
+    \end{itemize}
+    \item Purchase Intention:
+    \begin{itemize}
+        \item January Survey response
+        \item March Survey response
+    \end{itemize}
+\end{itemize}
+
+I hope this was helpful to answer your questions, and that you are satisfied with the additions we made to the paper.
+
+\end{document}

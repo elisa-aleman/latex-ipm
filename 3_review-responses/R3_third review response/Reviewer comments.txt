@@ -1,0 +1,54 @@
+Reviewer comments
+
+-Reviewer 1
+
+  -
+Thank you for revising the paper.
+
+I think that there is almost no problem in the paper.
+
+
+
+However, there is one point that should be revised.
+
+
+
+In this paper, you said that Deep Neural Networks need ten times data rather than SVM and XGBoost.
+
+This is not the truth.
+
+Some studies show good performance even if there are few training data.
+
+Additionally, some studies generate data by using GAN(Generative Adversarial Network) when there are few training data.
+
+
+
+Please rewrite this point.
+
+
+-Reviewer 2
+
+  - Additions and modifications made to the manuscript have resulted in an overall improvement. Demography related comparisons have been introduced, and accordingly the focus of the findings have shifted somewhat compared to the initial version. The new experiments and results provide further insights to be obtained from the large scale real-life dataset, a distinguishing aspect of the study.
+
+However, there is a major issue which appears to be ignored in the study or not explained well:
+
+For Category 1, F1-scores are high for the case of using Advert Viewing Time alone (F1-score = 0.85 for the case of Actual Purchase), and this is rightly pointed out in the manuscript as: "Predictions seem to be high across all models,". However, it then continues as: "but this is irrelevant since the customer is not changing their negative purchase behavior." Why is Category 1 deemed to be irrelevant? For this category (Category 1), the model appears to be predicting well based on the Advert Viewing Time alone. The customer may not be changing their behavior, but the model is predicting this quite well. 
+
+The issue is important because, according to Table B.20, Category 1 is more than 70% for the Actual Purchase case, a significant portion of the data. If we refer to this category as "irrelevant", would it not make the data for Category 1, which is the majority of experiment data, also irrelevant?
+
+Furthermore, in "Section 7.3. Implications for the TV advert industry", it is stated that: "there was no link observed between the time of advert exposure and the purchase decisions". But, is this correct for Category 1, which is the large majority among the categories? Because the model appears to be predicting quite well (F1=0.85) for this category.
+
+Some typos encountered in the text:
+
+- a given new input values
+
+- we performed a t-test "bewteen" the results
+
+- viewing time and "demographich" data
+
+- the average "predictabiity" rises
+
+- use "datasents" with orders of magnitude
+
+- performance "accross" prediction techniques
+

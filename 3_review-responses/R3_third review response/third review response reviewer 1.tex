@@ -1,0 +1,33 @@
+\documentclass[review]{elsarticle}
+\usepackage{hyperref}
+
+\begin{document}
+
+Dear Reviewer 1:
+
+Thank you for your response. I have noted the following comment:
+
+\begin{quotation}
+In this paper, you said that Deep Neural Networks need ten times data rather than SVM and XGBoost.
+This is not the truth.
+Some studies show good performance even if there are few training data.
+Additionally, some studies generate data by using GAN(Generative Adversarial Network) when there are few training data.
+\end{quotation}
+
+
+I corrected the Limitations section as follows:
+
+"In comparison with previous research regarding this topic, our study presents a much larger database, a sample of 3000 users for 36 different products and the previously unavailable household television viewing data increases the possibilities for studying the effects of advert exposure more realistically. In accordance with this size of data, we used SVM and XGBoost, which are considered well-performing machine learning algorithms in this level of magnitude. However, while we propose using machine learning algorithms as an effective method, we are still limited by the calculation times for each model. Top performing and state of the art models, such as Deep Neural Networks, with their variations and advancements, have been known to be used with similar magnitudes of data or to expand upon it by using GAN (Generative Adversarial Network) [goodfellow] , but their calculation time is far greater. Thus, Neural Networks are more appropriate for single models being trained, instead of a performance comparison of a large array of models as we did in our study."
+
+%%%%%% My text used to be 
+%%%%%% in Limitations section
+
+% In comparison with previous research regarding this topic, our study presents a much larger database, a sample of 3000 users for 36 different products and the previously unavailable household television viewing data increases the possibilities for studying the effects of advert exposure more realistically. In accordance to this size of data, we used SVM and XGBoost, which are considered well performing machine learning algorithms in this level of magnitude. However, while we propose using machine learning algorithms as an effective method, we are still limited by the magnitude of the data. Top performing and state of the art models, such as Deep Neural Networks, with their variations and advancements, use datasets with orders of magnitude much larger (for example, 3,000,000 users instead of 3,000, and thousands more products instead of 36) in order to perform to the level that they are praised for. The calculation time also increases greatly, and is more appropriate for single models being trained, instead of a comparison of a large array of models. 
+
+%%%%%%%%%
+
+I also added a citation for the GAN paper accordingly. 
+
+Thank you for your review, I hope this correction was satisfactory.
+
+\end{document}
